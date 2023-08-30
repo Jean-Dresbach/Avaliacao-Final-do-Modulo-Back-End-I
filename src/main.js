@@ -3,6 +3,7 @@ import userRouter from "./users";
 import messageRouter from "./messages";
 
 const app = express();
+const port = 8080;
 
 app.use(express.json());
 app.use("/users", userRouter);
@@ -14,4 +15,4 @@ app.get("/", (request, response) => {
     });
 });
 
-app.listen(8080, console.log("Server running in http://localhost:8080"));
+app.listen(port, console.log(`Server running in http://localhost:${port}`));

@@ -9,7 +9,9 @@
     "dev": "node --watch -r sucrase/register src/main.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "bcrypt": "^5.1.1",
+    "express": "^4.18.2",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "sucrase": "^3.34.0"
