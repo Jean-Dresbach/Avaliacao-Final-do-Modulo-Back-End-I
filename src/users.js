@@ -12,11 +12,11 @@ userRouter.post("/signup", async (request, response) => {
     const isAlreadyRegistered = users.some(user => user.email === email);
     if(!email || !name || !password) {
         return response.status(400).json({
-            message: "Por favor preencha todos os campos."
+            message: "Please, fill in all fields."
         });
     } else if(isAlreadyRegistered) {
         return response.status(400).json({
-            message: "Usuário já cadastrado!"
+            message: "User alrealdy registered!"
         });
     } else {
         const encryptedPassword = await bcrypt.hash(password, 10);
@@ -28,7 +28,7 @@ userRouter.post("/signup", async (request, response) => {
         };
         users.push(newUser);
         return response.status(201).json({
-            message: "Usuário cadastrado com sucesso!",
+            message: "User registered successfully!",
             newUser
         });
     }
