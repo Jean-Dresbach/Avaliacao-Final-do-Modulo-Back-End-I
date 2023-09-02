@@ -3,7 +3,7 @@ import bcrypt, { compare } from "bcrypt";
 import { v4 as uuidv4 } from 'uuid';
 
 const userRouter = Router();
-const users = [];
+export const users = [];
 
 export default userRouter;
 
@@ -30,11 +30,12 @@ userRouter.post("/signup", async (request, response) => {
             id: uuidv4(),
             name,
             email,
-            password: encryptedPassword
+            password: encryptedPassword,
+            isLogged: false
         };
         users.push(newUser);
         return response.status(201).json({
-            message: "User registered successfully!",
+            message: "User registered successfully! Login now to use your notes!",
             newUser
         });
     }
@@ -59,8 +60,9 @@ userRouter.post("/login", async (request, response) => {
                 message: "Invalid email or passaword."
             });
         } else {
+            user.isLogged = true;
             return response.status(200).json({
-                message: "User logged successfully!",
+                message: "User logged successfully! You can now use your notes!",
                 user
             });
         }
