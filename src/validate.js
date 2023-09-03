@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import { users } from "./users";
 
-export function validateSignUp(request, response, next) {
+export function validateRouteUserSignUp(request, response, next) {
     const {email, name, password} = request.body;
     if(!email || !name || !password) {
         return response.status(400).json({
@@ -17,7 +17,7 @@ export function validateSignUp(request, response, next) {
     next();
 }
 
-export async function validateLogin(request, response, next) {
+export async function validateRouteUserLogin(request, response, next) {
     const {email, password} = request.body;
     if(!email || !password) {
         return response.status(400).json({
@@ -39,7 +39,7 @@ export async function validateLogin(request, response, next) {
     next();
 }
 
-export function validateUserRequestAndLogin(request, response, next) {
+export function validateRouteNoteCreate(request, response, next) {
     const {title, description, userId} = request.body;
     if(!title || !description || !userId) {
         return response.status(400).json({
@@ -47,6 +47,11 @@ export function validateUserRequestAndLogin(request, response, next) {
         });
     }
     const user = users.find(user => user.id === userId);
+    if(!user) {
+        return response.status(404).json({
+            message: "Invalid ID! Please fill in the field with the same id as your user."
+        });
+    }
     if(user.isLogged === false) {
         return response.status(401).json({
             message: "Please log in to access your notes!"

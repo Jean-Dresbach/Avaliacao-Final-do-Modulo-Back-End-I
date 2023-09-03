@@ -1,7 +1,7 @@
 import { Router } from "express";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from 'uuid';
-import { validateSignUp, validateLogin } from "./validate";
+import { validateRouteUserSignUp, validateRouteUserLogin } from "./validate";
 
 const userRouter = Router();
 
@@ -14,7 +14,7 @@ userRouter.get("/", (request, response) => {
     })
 })
 
-userRouter.post("/signup", validateSignUp, async (request, response) => {
+userRouter.post("/signup", validateRouteUserSignUp, async (request, response) => {
     const {email, name, password} = request.body;
     const encryptedPassword = await bcrypt.hash(password, 10);
     const newUser = {
@@ -31,7 +31,7 @@ userRouter.post("/signup", validateSignUp, async (request, response) => {
     });
 });
 
-userRouter.post("/login", validateLogin, (request, response) => {
+userRouter.post("/login", validateRouteUserLogin, (request, response) => {
     const {email} = request.body;
     const user = users.find(user => user.email === email);
     user.isLogged = true;

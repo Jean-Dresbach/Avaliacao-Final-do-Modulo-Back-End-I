@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { v4 as uuidv4 } from 'uuid';
-import { validateUserRequestAndLogin } from "./validate"
+import { validateRouteNoteCreate } from "./validate"
 
 const noteRouter = Router();
 const notes = [];
 
 export default noteRouter;
 
-noteRouter.post("/create", validateUserRequestAndLogin, (request, response) => {
+noteRouter.post("/create", validateRouteNoteCreate, (request, response) => {
     const {title, description, userId} = request.body;
     const newNote = {
         id: uuidv4(),
