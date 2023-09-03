@@ -15,7 +15,7 @@ userRouter.get("/", (request, response) => {
 })
 
 userRouter.post("/signup", validateRouteUserSignUp, async (request, response) => {
-    const {email, name, password} = request.body;
+    const { email, name, password } = request.body;
     const encryptedPassword = await bcrypt.hash(password, 10);
     const newUser = {
         id: uuidv4(),
@@ -32,7 +32,7 @@ userRouter.post("/signup", validateRouteUserSignUp, async (request, response) =>
 });
 
 userRouter.post("/login", validateRouteUserLogin, (request, response) => {
-    const {email} = request.body;
+    const { email } = request.body;
     const user = users.find(user => user.email === email);
     user.isLogged = true;
     return response.status(200).json({
