@@ -9,10 +9,4 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/notes", noteRouter);
 
-app.get("/", (request, response) => {
-    return response.json({
-        message: "Server is up!"
-    });
-});
-
 app.listen(port, console.log(`Server running in http://localhost:${port}`));
