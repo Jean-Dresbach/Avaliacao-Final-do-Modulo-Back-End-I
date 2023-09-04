@@ -30,6 +30,11 @@ export function validateRouteListNote(request, response, next) {
             message: "User not found."
         });
     }
+    if(user.isLogged === false) {
+        return response.status(401).json({
+            message: "Please log in to access your notes!"
+        });
+    }
     next();
 }
 
@@ -47,6 +52,12 @@ export function validateRouteNoteUpdate(request, response, next) {
             message: "To update a note, please fill in all fields."
         });
     }
+    const user = users.find(user => user.id === note.userId);
+    if(user.isLogged === false) {
+        return response.status(401).json({
+            message: "Please log in to access your notes!"
+        });
+    }
     next();
 }
 
@@ -56,6 +67,12 @@ export function validateRouteNoteDelete(request, response, next) {
     if(!note) {
         return response.status(404).json({
             message: "Note not found."
+        });
+    }
+    const user = users.find(user => user.id === note.userId);
+    if(user.isLogged === false) {
+        return response.status(401).json({
+            message: "Please log in to access your notes!"
         });
     }
     next();
