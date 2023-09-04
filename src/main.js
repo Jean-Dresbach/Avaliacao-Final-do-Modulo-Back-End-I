@@ -9,4 +9,4 @@ app.use(express.json());
 app.use("/users", userRouter);
 app.use("/notes", noteRouter);
 
-app.listen(port, console.log(`Server running in http://localhost:${port}`));
+app.listen(port, console.log(`Server running!`));
