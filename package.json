@@ -1,8 +1,19 @@
 {
-  "name": "Avaliacao-Final-do-Modulo-Back-End-I",
+  "name": "avaliacao-final-do-modulo-back-end-1",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Jean-Dresbach/Avaliacao-Final-do-Modulo-Back-End-I.git",
   "author": "Jean Dresbach <jeanr.dresbach@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "node --watch -r sucrase/register src/main.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.18.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "sucrase": "^3.34.0"
+  }
 }

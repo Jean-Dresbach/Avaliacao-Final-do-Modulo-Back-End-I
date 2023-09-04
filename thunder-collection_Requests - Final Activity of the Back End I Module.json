@@ -1,0 +1,128 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Requests - Final Activity of the Back End I Module",
+    "dateExported": "2023-09-04T00:13:28.805Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "6b7e6f17-6443-466a-a334-56abb577891f",
+            "name": "users",
+            "containerId": "",
+            "created": "2023-08-31T20:07:16.574Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "9a9d2d7e-4730-4df5-b3ec-05c1b619c928",
+            "name": "notes",
+            "containerId": "",
+            "created": "2023-08-31T20:30:23.846Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "09556575-3fd3-4835-9953-a9160e843882",
+            "colId": "c7582919-e6c7-45cb-b567-d16cdcb2c977",
+            "containerId": "6b7e6f17-6443-466a-a334-56abb577891f",
+            "name": "sign up",
+            "url": "localhost:8080/users/signup",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-29T13:56:57.103Z",
+            "modified": "2023-09-02T07:18:26.712Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Joao\",\n  \"email\": \"joaodresbach@gmail.com\",\n  \"password\": \"senha1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "61c383e7-1474-4bf3-bf4a-1b3167aa1518",
+            "colId": "c7582919-e6c7-45cb-b567-d16cdcb2c977",
+            "containerId": "6b7e6f17-6443-466a-a334-56abb577891f",
+            "name": "login",
+            "url": "localhost:8080/users/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-30T15:04:09.453Z",
+            "modified": "2023-09-02T23:07:01.865Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"joaodresbach@gmail.com\",\n  \"password\": \"senha1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5e8debb0-5d8c-41ba-8270-5157e7f43486",
+            "colId": "c7582919-e6c7-45cb-b567-d16cdcb2c977",
+            "containerId": "9a9d2d7e-4730-4df5-b3ec-05c1b619c928",
+            "name": "create note",
+            "url": "localhost:8080/notes/create",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-08-31T20:30:39.917Z",
+            "modified": "2023-09-04T00:06:42.300Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"My first title\",\n  \"description\": \"My first description\",\n  \"userId\": \"\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "58542723-0f63-48f6-b394-5abb8a05adad",
+            "colId": "c7582919-e6c7-45cb-b567-d16cdcb2c977",
+            "containerId": "9a9d2d7e-4730-4df5-b3ec-05c1b619c928",
+            "name": "list user's notes",
+            "url": "localhost:8080/notes/",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-09-03T20:49:48.956Z",
+            "modified": "2023-09-04T00:07:32.775Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "dce283be-0f72-4eee-a98a-229cf51fa380",
+            "colId": "c7582919-e6c7-45cb-b567-d16cdcb2c977",
+            "containerId": "9a9d2d7e-4730-4df5-b3ec-05c1b619c928",
+            "name": "update note",
+            "url": "localhost:8080/notes/update/",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2023-09-03T22:40:09.794Z",
+            "modified": "2023-09-04T00:07:16.843Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Updated title\",\n  \"description\": \"Updated description\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c999887e-0b93-4b23-9fb8-3bed4b6c53be",
+            "colId": "c7582919-e6c7-45cb-b567-d16cdcb2c977",
+            "containerId": "9a9d2d7e-4730-4df5-b3ec-05c1b619c928",
+            "name": "delete note",
+            "url": "localhost:8080/notes/",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-09-04T00:03:51.696Z",
+            "modified": "2023-09-04T00:07:24.876Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
