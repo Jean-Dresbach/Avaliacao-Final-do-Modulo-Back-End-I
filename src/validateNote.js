@@ -49,3 +49,14 @@ export function validateRouteNoteUpdate(request, response, next) {
     }
     next();
 }
+
+export function validateRouteNoteDelete(request, response, next) {
+    const { noteId } = request.params;
+    const note = notes.find(note => note.id === noteId);
+    if(!note) {
+        return response.status(404).json({
+            message: "Note not found."
+        });
+    }
+    next();
+}

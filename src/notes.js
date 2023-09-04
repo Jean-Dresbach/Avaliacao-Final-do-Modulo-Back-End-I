@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { v4 as uuidv4 } from 'uuid';
-import { validateRouteNoteCreate, validateRouteListNote, validateRouteNoteUpdate } from "./validateNote";
+import { validateRouteNoteCreate, validateRouteListNote, validateRouteNoteUpdate, validateRouteNoteDelete } from "./validateNote";
 
 const noteRouter = Router();
 export const notes = [];
@@ -38,5 +38,15 @@ noteRouter.put("/update/:noteId", validateRouteNoteUpdate, (request, response) =
     notes[noteIndex].description = description;
     response.status(200).json({
         message: "Note updated successfully!"
+    });
+});
+
+noteRouter.delete("/:noteId", validateRouteNoteDelete, (request, response) => {
+    const { noteId } = request.params;
+    const noteIndex = notes.findIndex(note => note.id === noteId);
+    const deletedNote = notes.splice(noteIndex, 1);
+    response.status(200).json({
+        message: "Note deleted successfully!",
+        deletedNote
     });
 });
