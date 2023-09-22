@@ -38,3 +38,19 @@ export async function validateRouteUserLogin(request, response, next) {
     }
     next()
 }
+
+export async function validateRouteUserLogout(request, response, next) {
+    const { userId } = request.params
+    if(!userId) {
+        return response.status(400).json({
+            message: "User id was not found in the url params."
+        })
+    }
+    const user = users.find(user => user.id === userId)
+    if(!user) {
+        return response.status(404).json({
+            message: `User with the id: ${userId} was not found.`
+        })
+    }
+    next()
+}

@@ -1,7 +1,7 @@
 import { Router } from "express"
 import bcrypt from "bcrypt"
 import { v4 as uuidv4 } from 'uuid'
-import { validateRouteUserSignUp, validateRouteUserLogin } from "./validateUser"
+import { validateRouteUserSignUp, validateRouteUserLogin, validateRouteUserLogout } from "./validateUser"
 
 const userRouter = Router()
 
@@ -36,5 +36,16 @@ userRouter.post("/login", validateRouteUserLogin, (request, response) => {
     return response.status(200).json({
         message: "User logged successfully! You can now use your notes!",
         user
+    })
+})
+
+userRouter.put("/logout/:userId", validateRouteUserLogout, (request, response) => {
+    const { userId } = request.params
+    const user = users.find(user => user.id === userId)
+
+    user.isLogged = false
+
+    return response.status(200).json({
+        message: "User logged out successfully! Please login to use your notes!"
     })
 })

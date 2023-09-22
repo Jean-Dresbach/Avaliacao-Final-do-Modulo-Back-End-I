@@ -38,7 +38,7 @@ All responses will return data in <kbd>json</kbd>.
 
 - **/users**
 
-The requests with end-point <kbd>/users</kbd> only uses <kbd>POST</kbd>. With it, you have access to two more end points <kbd>/signup</kbd> and <kbd>/login</kbd>.
+The requests with end-point <kbd>/users</kbd> only uses <kbd>POST</kbd> and <kbd>PUT</kbd>. With it, you have access to three more end points: <kbd>/signup</kbd>, <kbd>/login</kbd> and <kbd>/logout/:userId</kbd>.
 
 **/signup**
 
@@ -78,6 +78,15 @@ To login a user **(after creating it's account)** you must send and JSON contain
         isLogged: true
     }
 }</kbd>
+
+**/logout/:userId**
+
+The requests with end-point <kbd>/logout/:userId</kbd> can use <kbd>PUT</kbd> to change the status isLogged (controls if user is logged and his access to his notes) to false. When using it you must pass the userId as a parameter on the url.
+
+**Returns:**
+
+<kbd>message: "User logged out successfully! Please login to use your notes!"</kbd>
+
 
 - **/notes**
 
