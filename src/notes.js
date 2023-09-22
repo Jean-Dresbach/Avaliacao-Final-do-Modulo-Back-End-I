@@ -40,7 +40,7 @@ noteRouter.get("/:userId", validateRouteListNote, (request, response) => {
     })
 })
 
-noteRouter.put("/update/:noteId", validateRouteNoteUpdate, (request, response) => {
+noteRouter.put("/:noteId", validateRouteNoteUpdate, (request, response) => {
     const { noteId } = request.params
     const { title, description } = request.body
     const noteIndex = notes.findIndex(note => note.id === noteId)
