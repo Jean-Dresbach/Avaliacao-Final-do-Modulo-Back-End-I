@@ -26,7 +26,7 @@ noteRouter.post("/create", validateRouteNoteCreate, (request, response) => {
 
 noteRouter.get("/:userId", validateRouteListNote, (request, response) => {
     const page = request.query.page ?? 1
-    const per_page = request.query.per_page ?? 5
+    const per_page = request.query.per_page ?? 10
     const { userId } = request.params
     
     const userNotes = notes.filter(note => note.userId === userId)
